@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private NavMeshAgent agent;
+    private GameObject player;
     private float lastDestinationChangeTime = 0.0f;
     
     [SerializeField]
@@ -16,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         realChangeInterval = Random.Range(destinationChangeInterval - 0.2f*destinationChangeInterval, destinationChangeInterval + 0.2f*destinationChangeInterval);
     }
@@ -41,7 +43,7 @@ public class EnemyAI : MonoBehaviour
     
     void ChangeDestinationToPlayerPosition()
     {
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        agent.SetDestination(player.position);
+        Transform playerTransform = player.transform;
+        agent.SetDestination(playerTransform.position);
     }
 }
