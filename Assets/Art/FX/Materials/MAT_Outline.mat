@@ -55,19 +55,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorThreshold: 0.08
+    - _ColorThreshold: 0.12
     - _Dither_Scale: 1
     - _MAXDIST: 0
     - _MINDIST: 0
-    - _NormalThreshold: 0.09
+    - _NormalThreshold: 0.14
     - _OVERLAY: 0
-    - _Outline_Size: 1.9
+    - _Outline_Size: 0.7
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Threshold: 1
-    - _Tiling_Color: 8
-    - _Tiling_depth: 23.46
-    - _Tiling_normal: 33
+    - _Tiling_Color: 21.5
+    - _Tiling_depth: 23.18
+    - _Tiling_normal: 11.8
     m_Colors:
     - _Outline_Color: {r: 0.3773585, g: 0.35777858, b: 0.35777858, a: 1}
   m_BuildTextureStacks: []
