@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,6 +16,7 @@ public class ExplosionHandler : MonoBehaviour
     private float deadZoneRadius;
 
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask obstacleMask;
 
     private bool _exploded;
 
@@ -63,43 +65,71 @@ public class ExplosionHandler : MonoBehaviour
 
     private void ExplodeOther()
     {
-        var affectedCollider = Physics.OverlapSphere(transform.position, blastRadius, layerMask);
+        var deadInstance = Physics.OverlapSphere(transform.position, deadZoneRadius, layerMask);
+        var potentialBlastInstance = Physics.OverlapSphere(transform.position, blastRadius, layerMask);
+
+        var blastInstance = potentialBlastInstance.Where(x => !deadInstance.Contains(x));
                         
-        foreach (var collider in affectedCollider)    
+        //Check for each object affected in the blast and apply some logic to them based on their type
+        foreach (var collider in blastInstance)    
         {
-            //TODO apply the explosion to them
             var targetLayerMask = collider.gameObject.layer;
-                        
                         
             if (targetLayerMask == PlayerLayer)
             {
-                CustomLogger.Log("Player detected");
-                collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position);
+                if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
+                {
+                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position);
+                }
                 continue;
             }
         
             if (targetLayerMask == EnemyLayer)
             {
-                CustomLogger.Log("Player detected");
-                collider.gameObject.GetComponent<CharacterExplosionHandler>()?.ApplyForce(transform.position, new BombParam()
+                if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
-                    blastForce = blastForce,
-                    blastRadius = blastRadius
-                }); 
+                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position);
+                }
                 continue;               
                          
             }
                                    
             if (targetLayerMask == BombLayer)
             {
-                if (collider.gameObject != gameObject)
+                if (collider.gameObject != gameObject && !IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
-                    CustomLogger.Log("Bomb detected");
                     collider.gameObject.GetComponent<Countdown>()?.StartCountDown(delayChainedBomb);
                 }
                 continue;
             }
                                     
+            //Should never end up here or else we have a problem
+            Assert.True(false);
+        }
+
+        //Check for each object affected by the deadzone and apply some logic to them based on their type
+        foreach (var collider in deadInstance)
+        {
+            var targetLayerMask = collider.gameObject.layer;
+                                    
+            if (targetLayerMask == PlayerLayer)
+            {
+                //TODO kill player
+                continue;
+            }
+                    
+            if (targetLayerMask == EnemyLayer)
+            {
+                //TODO kill enemy
+                continue;               
+            }
+                                               
+            if (targetLayerMask == BombLayer)
+            {
+                //Nothing to do here
+                continue;
+            }
+                                                
             //Should never end up here or else we have a problem
             Assert.True(false);
         }
@@ -109,6 +139,19 @@ public class ExplosionHandler : MonoBehaviour
     {
         Gizmos.color = new Color(0, 0.5f, 0, 0.5f);
         Gizmos.DrawSphere(gameObject.transform.position, blastRadius);
+    }
+
+    private bool IsObstructed(Vector3 originPosition, Vector3 targetPosition)
+    {
+        var direction = (targetPosition - originPosition).normalized; // Direction to target
+        float distance = Vector3.Distance(originPosition, targetPosition); // Distance to target
+
+        // Perform the raycast
+        if (Physics.Raycast(originPosition, direction, out RaycastHit hitInfo, distance, obstacleMask))
+        {
+            return true;
+        }
+        return false;
     }
     
     
