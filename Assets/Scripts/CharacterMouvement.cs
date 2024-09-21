@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CharacterMouvement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody _rb;
+    
+    private Rigidbody _rb;
     public float _speed = 5.0f;
    [SerializeField] private float _turnSpeed = 360;
-    [SerializeField] private GameObject prefab; 
+    [SerializeField] private GameObject bombPrefab; 
     private Vector3 _input;
 
 
@@ -15,6 +16,11 @@ public class CharacterMouvement : MonoBehaviour
     //Test limite bombe
     public int limiteBombe = 3;
 
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+    
     private void Update()
     {
         GatherInput();
@@ -69,7 +75,7 @@ public class CharacterMouvement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(prefab, transform.position, transform.rotation);
+            Instantiate(bombPrefab, transform.position, transform.rotation);
         }
     }
 

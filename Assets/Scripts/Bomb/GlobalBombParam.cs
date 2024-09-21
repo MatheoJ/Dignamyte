@@ -18,6 +18,5 @@ public class GlobalBombParam : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        OnCompleteEvent?.Invoke();
     }
 }

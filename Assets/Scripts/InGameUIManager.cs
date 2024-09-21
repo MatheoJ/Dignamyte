@@ -26,6 +26,12 @@ public class InGameUIManager : MonoBehaviour
         timeText.text = "Time: " + minutes.ToString("00") + ":" + seconds.ToString("00");
     }
     
+    public void UpdateBombCount(int currentBombCount, int maxBombCount)
+    {
+        // Update the bomb count text
+        timeText.text = "Bombs: " + currentBombCount + "/" + maxBombCount;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

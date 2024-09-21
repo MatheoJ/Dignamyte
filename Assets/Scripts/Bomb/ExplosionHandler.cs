@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -103,9 +102,7 @@ public class ExplosionHandler : MonoBehaviour
                 }
                 continue;
             }
-                                    
-            //Should never end up here or else we have a problem
-            Assert.True(false);
+                               
         }
 
         //Check for each object affected by the deadzone and apply some logic to them based on their type
@@ -121,7 +118,7 @@ public class ExplosionHandler : MonoBehaviour
                     
             if (targetLayerMask == EnemyLayer)
             {
-                //TODO kill enemy
+                collider.gameObject.GetComponent<EnemyAI>()?.kill();
                 continue;               
             }
                                                
@@ -130,9 +127,7 @@ public class ExplosionHandler : MonoBehaviour
                 //Nothing to do here
                 continue;
             }
-                                                
-            //Should never end up here or else we have a problem
-            Assert.True(false);
+                                
         }
     }
     

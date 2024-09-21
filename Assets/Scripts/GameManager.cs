@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     
     private float timeSinceStuntStart = 0.0f;
     
+    
     public bool AreEnemiesStunned
     {
         get
