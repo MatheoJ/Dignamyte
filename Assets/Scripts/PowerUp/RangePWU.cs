@@ -7,10 +7,12 @@ using UnityEngine;
 public class RangePWU : PoweupEffect
 {
 
+    public float amount;
+    [SerializeField] private GameObject prefab;
 
     public override void Apply(GameObject target)
     {
-        
-       // target.GetComponent<>()._speed += amount;
+        target = prefab;
+        target.GetComponent<GlobalBombParam>().blastRadius += amount;
     }
 }
