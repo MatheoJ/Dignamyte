@@ -7,10 +7,11 @@ using UnityEngine;
 public class RangePWU : PoweupEffect
 {
 
+    public float amount;
+   
 
     public override void Apply(GameObject target)
     {
-        
-       // target.GetComponent<>()._speed += amount;
+        GlobalBombParam.Instance.blastRadius += amount;
     }
 }

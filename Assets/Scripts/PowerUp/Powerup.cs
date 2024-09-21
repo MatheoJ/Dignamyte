@@ -19,7 +19,7 @@ public class Powerup : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(PowerupGone());
+        //StartCoroutine(PowerupGone());
     }
 
     private IEnumerator PowerupGone()
