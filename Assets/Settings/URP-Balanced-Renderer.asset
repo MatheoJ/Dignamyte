@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00045f12942b46c698459096c89274e, type: 3}
   m_Name: Outlline
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   passMaterial: {fileID: 2100000, guid: 0cceeb6e34cfa0c4b84047ee523a4a18, type: 2}
   injectionPoint: 600
-  requirements: 1
+  requirements: 7
   passIndex: 0
 --- !u!114 &11400000
 MonoBehaviour:
