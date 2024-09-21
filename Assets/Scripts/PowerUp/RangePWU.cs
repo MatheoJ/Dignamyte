@@ -8,11 +8,10 @@ public class RangePWU : PoweupEffect
 {
 
     public float amount;
-    [SerializeField] private GameObject prefab;
+   
 
     public override void Apply(GameObject target)
     {
-        target = prefab;
-        target.GetComponent<GlobalBombParam>().blastRadius += amount;
+        GlobalBombParam.Instance.blastRadius += amount;
     }
 }
