@@ -9,12 +9,14 @@ public class CharacterHealth : MonoBehaviour
 
     public bool invincible;
 
-
-   
+ 
+    
     // Start is called before the first frame update
     void Start()
     {
         invincible = false;
+
+
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class CharacterHealth : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
        
-            if (collision.gameObject.tag == "Ennemi")
+            if (collision.gameObject.tag == "Enemy")
             {
                  Kill();
 
@@ -53,7 +55,7 @@ public class CharacterHealth : MonoBehaviour
     {
         if (invincible != true)
         {
-
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().EndGame();
         }
 
 
