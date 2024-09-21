@@ -66,4 +66,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void EndGame()
+    {
+       //TODO change scene and pass the score to it
+       
+    }
 }
