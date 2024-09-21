@@ -18,6 +18,8 @@ public class ExplosionHandler : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask obstacleMask;
 
+    [SerializeField] private GameObject explosionFx;
+
     private bool _exploded;
 
     private const int PlayerLayer = 11;
@@ -32,6 +34,7 @@ public class ExplosionHandler : MonoBehaviour
         blastForce = GlobalBombParam.Instance.blastForce;
         blastRadius = GlobalBombParam.Instance.blastRadius;
         deadZoneRadius = GlobalBombParam.Instance.deadZoneRadius;
+        
     }
 
     
@@ -47,20 +50,18 @@ public class ExplosionHandler : MonoBehaviour
         if (!_exploded)
         {
             _exploded = true;
-            //Explose Self
-            var objectRenderer = GetComponent<Renderer>();
-                        
-            // Get the current material color
-            Color currentColor = objectRenderer.material.color;
-            Debug.Log("Current Color: " + currentColor);
-                        
-            // Change the RGB values (for example, increase red by 0.1)
-            Color newColor = new Color(1, 0, 0);
-            objectRenderer.material.color = newColor;
-                                
-            Destroy(this.gameObject);    
+            PlayVFXAndDestroy();
+            // Destroy(this.gameObject);    
         }
         
+    }
+
+    private void PlayVFXAndDestroy()
+    {
+        var obj = Instantiate(explosionFx);
+        obj.transform.position = transform.position;
+        
+        Destroy(gameObject);
     }
 
     private void ExplodeOther()
