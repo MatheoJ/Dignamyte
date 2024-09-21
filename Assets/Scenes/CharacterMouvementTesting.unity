@@ -1044,6 +1044,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedPWU (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7389862499326449324, guid: d1e08b97ccec4490890ea65cb48422c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
