@@ -5,10 +5,15 @@ using UnityEngine;
 public class CharacterMouvement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _speed = 5;
-    [SerializeField] private float _turnSpeed = 360;
+    public float _speed = 5.0f;
+   [SerializeField] private float _turnSpeed = 360;
     [SerializeField] private GameObject prefab; 
     private Vector3 _input;
+
+
+
+    //Test limite bombe
+    public int limiteBombe = 3;
 
     private void Update()
     {
@@ -55,7 +60,9 @@ public class CharacterMouvement : MonoBehaviour
 
     private void Move()
     {
-        _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
+        //_rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
+
+        _rb.MovePosition(transform.position +_input * _speed * Time.deltaTime);
     }
 
     private void PlaceBomb()
