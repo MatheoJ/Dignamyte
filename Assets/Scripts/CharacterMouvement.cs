@@ -10,6 +10,11 @@ public class CharacterMouvement : MonoBehaviour
     [SerializeField] private GameObject prefab; 
     private Vector3 _input;
 
+
+
+    //Test limite bombe
+    public int limiteBombe = 3;
+
     private void Update()
     {
         GatherInput();

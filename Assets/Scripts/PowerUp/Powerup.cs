@@ -6,7 +6,7 @@ public class Powerup : MonoBehaviour
 {
     public PoweupEffect poweupEffect;
 
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -17,6 +17,15 @@ public class Powerup : MonoBehaviour
        
     }
 
+    private void Update()
+    {
+        //StartCoroutine(PowerupGone());
+    }
 
+    private IEnumerator PowerupGone()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
 
 }

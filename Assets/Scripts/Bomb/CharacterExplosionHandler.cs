@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class CharacterExplosionHandler : MonoBehaviour
 {
-
-    [SerializeField] private BombParam bombParam;
-    
-    public void ApplyForce(Vector3 otherPosition)
+    public void ApplyForce(Vector3 otherPosition, BombParam bombParam)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
 
         if (rb != null)
         {
-            rb.AddExplosionForce(bombParam.blastForce, otherPosition + new Vector3(0, 0, -1), bombParam.blastRadius);
+            rb.AddExplosionForce(bombParam.blastForce, otherPosition, bombParam.blastRadius);
+            rb.AddForce(new Vector3(0, bombParam.blastForce / 2, 0));
         }
     }
 }

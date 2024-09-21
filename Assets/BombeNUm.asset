@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 312535fdcb2d55d4ea5bfa5a29212379, type: 3}
-  m_Name: BasicBombParam
+  m_Script: {fileID: 11500000, guid: 025f91cd2c67b46de9f988b0f4b8979e, type: 3}
+  m_Name: BombeNUm
   m_EditorClassIdentifier: 
-  timeSelfExplosion: 5
-  timeChainedExplosion: 0.4
-  blastRadius: 3
-  blastForce: 200
