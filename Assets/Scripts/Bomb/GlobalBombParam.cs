@@ -12,10 +12,12 @@ public class GlobalBombParam : MonoBehaviour
     [SerializeField] public float blastRadius;
     [SerializeField] public float blastForce;
     [SerializeField] public float deadZoneRadius;
+
+    public static event Action OnCompleteEvent;
     
     private void Start()
     {
         Instance = this;
+        OnCompleteEvent?.Invoke();
     }
-    
 }
