@@ -14676,7 +14676,7 @@ MonoBehaviour:
   eventHandler:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 345213969701149010}
+      - m_Target: {fileID: 4399545804130144988}
         m_TargetAssemblyTypeName: DestroySelf, Assembly-CSharp
         m_MethodName: Destroy
         m_Mode: 1
@@ -19655,6 +19655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9170348372046915617}
   - component: {fileID: 7777691283993024451}
+  - component: {fileID: 2639066623475911267}
   m_Layer: 0
   m_Name: Decal Projector
   m_TagString: Untagged
@@ -19701,6 +19702,22 @@ MonoBehaviour:
   m_Offset: {x: 0, y: 0, z: 2}
   m_Size: {x: 4, y: 4, z: 4}
   m_FadeFactor: 1
+--- !u!114 &2639066623475911267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579440218501520095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6c3fb5760f08b44af3b1d6e2cff85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decal: {fileID: 7777691283993024451}
+  startValue: 1
+  endValue: 0
+  duration: 6
 --- !u!1 &8984414790410157827
 GameObject:
   m_ObjectHideFlags: 0

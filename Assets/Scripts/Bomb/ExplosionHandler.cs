@@ -59,7 +59,6 @@ public class ExplosionHandler : MonoBehaviour
     {
         var obj = Instantiate(explosionFx);
         obj.transform.position = transform.position;
-        
         Destroy(gameObject);
     }
 
