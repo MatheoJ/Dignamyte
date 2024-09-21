@@ -7,9 +7,14 @@ using UnityEngine.Serialization;
 
 public class BombExplosionHandler : MonoBehaviour
 {
-    [SerializeField] private BombParam bombParam;
     
-    [SerializeField] 
+    public float timeSelfExplosion;
+    public float timeChainedExplosion;
+    public float blastRadius;
+    public float deadzoneRadius;
+    public float blastForce;
+    
+    [SerializeField]
     private int playerLayer;
     [SerializeField]
     private int enemyLayer;
@@ -25,7 +30,7 @@ public class BombExplosionHandler : MonoBehaviour
 
     private void Start()
     {
-        HandleExplosion(bombParam.timeSelfExplosion);
+        HandleExplosion(timeSelfExplosion);
     }
 
     public void HandleExplosion(float time)
@@ -66,7 +71,7 @@ public class BombExplosionHandler : MonoBehaviour
 
     private void ExploseOther()
     {
-        var affectedCollider = Physics.OverlapSphere(transform.position, bombParam.blastRadius, layerMask);
+        var affectedCollider = Physics.OverlapSphere(transform.position, blastRadius, layerMask);
                 
         foreach (var collider in affectedCollider)    
         {
@@ -74,25 +79,35 @@ public class BombExplosionHandler : MonoBehaviour
             var targetLayerMask = collider.gameObject.layer;
                 
                 
-            if (targetLayerMask == playerLayer)
+            if (targetLayerMask == playerLayer )
             {
                 CustomLogger.Log("Player detected");
-                collider.gameObject.GetComponent<CharacterExplosionHandler>()?.ApplyForce(transform.position); 
+                collider.gameObject.GetComponent<CharacterExplosionHandler>()?.ApplyForce(transform.position, new BombParam()
+                {
+                    blastForce = blastForce,
+                    blastRadius = blastRadius
+                }); 
                 continue;
             }
-                            
+
             if (targetLayerMask == enemyLayer)
             {
-                CustomLogger.Log("Enemy detected");
-                continue;
+                 CustomLogger.Log("Player detected");
+                 collider.gameObject.GetComponent<CharacterExplosionHandler>()?.ApplyForce(transform.position, new BombParam()
+                 {
+                     blastForce = blastForce,
+                     blastRadius = blastRadius
+                 }); 
+                 continue;               
+                 
             }
-                            
+                           
             if (targetLayerMask == bombLayer)
             {
                 if (collider.gameObject != gameObject)
                 {
                     CustomLogger.Log("Bomb detected");
-                    collider.gameObject.GetComponent<BombExplosionHandler>()?.HandleExplosion(bombParam.timeChainedExplosion);
+                    collider.gameObject.GetComponent<BombExplosionHandler>()?.HandleExplosion(timeChainedExplosion);
                 }
                 continue;
             }
@@ -106,6 +121,6 @@ public class BombExplosionHandler : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0, 0.5f, 0, 0.5f);
-        Gizmos.DrawSphere(gameObject.transform.position, bombParam.blastRadius);
+        Gizmos.DrawSphere(gameObject.transform.position, blastRadius);
     }
 }
