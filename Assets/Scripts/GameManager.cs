@@ -1,11 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private InGameUIManager inGameUIManager;
+
+    [SerializeField] private int leaderBoardScene;
+        
     
     private int killCount = 0;
     
@@ -33,7 +39,12 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
         timeSinceGameStart = Time.time;
@@ -69,7 +80,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-       //TODO change scene and pass the score to it
-       
+       SceneManager.LoadScene(leaderBoardScene);
     }
 }
