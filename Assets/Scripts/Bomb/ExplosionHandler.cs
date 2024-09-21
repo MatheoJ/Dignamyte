@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ExplosionHandler : MonoBehaviour
 {
@@ -33,7 +29,6 @@ public class ExplosionHandler : MonoBehaviour
         blastForce = GlobalBombParam.Instance.blastForce;
         blastRadius = GlobalBombParam.Instance.blastRadius;
         deadZoneRadius = GlobalBombParam.Instance.deadZoneRadius;
-        
     }
 
     
@@ -59,6 +54,8 @@ public class ExplosionHandler : MonoBehaviour
     {
         var obj = Instantiate(explosionFx);
         obj.transform.position = transform.position;
+        
+        //TODO play sound
         Destroy(gameObject);
     }
 
@@ -101,7 +98,8 @@ public class ExplosionHandler : MonoBehaviour
                 }
                 continue;
             }
-                               
+                                    
+            //Should never end up here or else we have a problem
         }
 
         //Check for each object affected by the deadzone and apply some logic to them based on their type
@@ -126,7 +124,8 @@ public class ExplosionHandler : MonoBehaviour
                 //Nothing to do here
                 continue;
             }
-                                
+                                                
+            //Should never end up here or else we have a problem
         }
     }
     
