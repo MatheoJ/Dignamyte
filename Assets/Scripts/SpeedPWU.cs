@@ -1,18 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedPWU : MonoBehaviour
+[CreateAssetMenu(menuName = "Powerups/Speed")]
+
+public class SpeedPWU : PoweupEffect
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public float amount;
+
+    public override void Apply(GameObject target)
     {
-        
+        target.GetComponent<CharacterMouvement>()._speed += amount;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
 }

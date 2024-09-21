@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMouvement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _speed = 5;
+    public float _speed = 5.0f;
     [SerializeField] private float _turnSpeed = 360;
     [SerializeField] private GameObject prefab; 
     private Vector3 _input;

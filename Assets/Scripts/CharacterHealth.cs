@@ -7,12 +7,14 @@ public class CharacterHealth : MonoBehaviour
 
     public int health = 1;
 
+    public bool invincible;
+
 
    
     // Start is called before the first frame update
     void Start()
     {
-        
+        invincible = false;
     }
 
     // Update is called once per frame
@@ -21,12 +23,36 @@ public class CharacterHealth : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        if(invincible == true)
+        {
+            StartCoroutine(InvincibleTimer());
+
+
+        }
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ennemi" || collision.gameObject.tag == "Bomb" )
+        if( invincible != true)
         {
-            health = 0;
+            if (collision.gameObject.tag == "Ennemi" || collision.gameObject.tag == "Bomb")
+            {
+                health = 0;
+            }
         }
+      
+    }
+
+
+    private IEnumerator InvincibleTimer()
+    {
+      
+            yield return new WaitForSeconds(5f);
+            invincible = false;
+        
     }
 
 }
