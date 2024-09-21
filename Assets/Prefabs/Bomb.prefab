@@ -152,3 +152,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 3584
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1
