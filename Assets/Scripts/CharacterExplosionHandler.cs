@@ -13,8 +13,7 @@ public class CharacterExplosionHandler : MonoBehaviour
 
         if (rb != null)
         {
-            // Apply force to the rigidbody
-            rb.AddExplosionForce(bombParam.blastForce, otherPosition, bombParam.blastRadius);
+            rb.AddExplosionForce(bombParam.blastForce, otherPosition + new Vector3(0, 0, -1), bombParam.blastRadius);
         }
     }
 }

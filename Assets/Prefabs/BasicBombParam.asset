@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312535fdcb2d55d4ea5bfa5a29212379, type: 3}
   m_Name: BasicBombParam
   m_EditorClassIdentifier: 
-  timeSelfExplosion: 0
-  timeChainedExplosion: 0
-  blastRadius: 0
-  blastForce: 0
+  timeSelfExplosion: 5
+  timeChainedExplosion: 0.4
+  blastRadius: 3
+  blastForce: 200
