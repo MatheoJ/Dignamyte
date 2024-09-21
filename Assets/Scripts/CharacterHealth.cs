@@ -36,14 +36,27 @@ public class CharacterHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if( invincible != true)
-        {
-            if (collision.gameObject.tag == "Ennemi" || collision.gameObject.tag == "Bomb")
+       
+            if (collision.gameObject.tag == "Ennemi")
             {
-                health = 0;
+                 Kill();
+
             }
-        }
+        
       
+    }
+
+
+
+
+    public void Kill()
+    {
+        if (invincible != true)
+        {
+
+        }
+
+
     }
 
 
