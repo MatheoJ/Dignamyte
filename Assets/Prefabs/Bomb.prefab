@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7525860208959222250}
   - component: {fileID: 905856067949642736}
   - component: {fileID: 4222740021456688309}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,9 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombParam: {fileID: 11400000, guid: e5f222ade26649e44822bf347df6ca50, type: 2}
-  playerLayer: 6
-  enemyLayer: 8
-  bombLayer: 7
+  playerLayer: 11
+  enemyLayer: 10
+  bombLayer: 9
   layerMask:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 3584
