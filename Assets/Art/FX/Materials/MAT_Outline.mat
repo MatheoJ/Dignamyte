@@ -61,7 +61,7 @@ Material:
     - _MINDIST: 0
     - _NormalThreshold: 0.14
     - _OVERLAY: 0
-    - _Outline_Size: 0.7
+    - _Outline_Size: 1.61
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Threshold: 1
