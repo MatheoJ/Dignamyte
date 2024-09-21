@@ -158,6 +158,15 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.unity.visualeffectgraph": {
+      "version": "16.0.6",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.shadergraph": "16.0.6",
+        "com.unity.render-pipelines.core": "16.0.6"
+      }
+    },
     "com.unity.visualscripting": {
       "version": "1.8.0",
       "depth": 0,
