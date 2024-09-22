@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
 {
-    public TextMeshProUGUI killCountText;
+    public Text killCountText;
     
-    //[SerializeField]
-    public TextMeshProUGUI timeText;
+    public Text timeText;
+
+    public Text powerUpText;
     
     public Image freezeClock;
     
@@ -24,25 +25,16 @@ public class InGameUIManager : MonoBehaviour
     
     public void UpdateTimeSinceStart(float time)
     {
-        // Convert the time to minutes and seconds
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
-        timeText.text = "Time: " + minutes.ToString("00") + ":" + seconds.ToString("00");
+        timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
     
-    public void UpdateBombCount(int currentBombCount, int maxBombCount)
-    {
-        // Update the bomb count text
-        timeText.text = "Bombs: " + currentBombCount + "/" + maxBombCount;
-    }
-    
-    // Start is called before the first frame update
     void Start()
     {
         timeSinceGameStart = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateTimeSinceStart(Time.time - timeSinceGameStart);
@@ -84,5 +76,69 @@ public class InGameUIManager : MonoBehaviour
         }
         
         invincibilityClock.fillAmount = 1.0f;
+    }
+    
+    public void displayPowerUpTextForDuration(string powerUpName, float duration)
+    {
+        powerUpText.text = powerUpName;
+        powerUpText.gameObject.SetActive(true);
+        StartCoroutine(FadeInAndOutPowerUpText(duration));
+    }
+    
+    // Coroutine to handle fading in and out of the power-up text
+    IEnumerator FadeInAndOutPowerUpText(float duration)
+    {
+        // Fade in
+        yield return StartCoroutine(FadeInText());
+
+        // Wait for the duration
+        yield return new WaitForSeconds(duration);
+
+        // Fade out
+        yield return StartCoroutine(FadeOutText());
+        
+        powerUpText.gameObject.SetActive(false);
+    }
+
+    // Coroutine for fading in the text
+    IEnumerator FadeInText()
+    {
+        Color textColor = powerUpText.color;
+        textColor.a = 0;
+        powerUpText.color = textColor;
+
+        while (powerUpText.color.a < 1.0f)
+        {
+            textColor.a += Time.deltaTime / 0.7f; // Adjust this for fade-in speed
+            powerUpText.color = textColor;
+            yield return null;
+        }
+    }
+
+    // Coroutine for fading out the text
+    IEnumerator FadeOutText()
+    {
+        Color textColor = powerUpText.color;
+        while (powerUpText.color.a > 0.0f)
+        {
+            textColor.a -= Time.deltaTime / 0.7f; // Adjust this for fade-out speed
+            powerUpText.color = textColor;
+            yield return null;
+        }
+    }
+
+    public void displaySpeedBoostText()
+    {
+        displayPowerUpTextForDuration("Speed Boost", 1.0f);
+    }
+    
+    public void displayRangeBoostText()
+    {
+        displayPowerUpTextForDuration("Bomb Range Boost", 1.0f);
+    }
+    
+    public void displayBombNumberBoostText()
+    {
+        displayPowerUpTextForDuration("Bomb number boost", 1.0f);
     }
 }

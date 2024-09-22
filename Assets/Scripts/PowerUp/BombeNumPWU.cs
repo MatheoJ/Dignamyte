@@ -12,6 +12,8 @@ public class BombeNumPWU : PoweupEffect
     {
 
         target.GetComponent<CharacterMouvement>().limiteBombe += 1;
+        //Get in game ui manager and update the bomb number
+        GameObject.FindGameObjectWithTag("InGameUIManager").GetComponent<InGameUIManager>().displayBombNumberBoostText();
     }
 
 }
