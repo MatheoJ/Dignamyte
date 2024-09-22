@@ -25,6 +25,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Layer_3855D6AD:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Layer_893DE2DF:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_df46ed5c415d482c9143af7351b1d936_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 2893d41ad67b350438d248f26d4fe139, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -55,20 +63,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorThreshold: 0.12
+    - _ColorThreshold: 0.04
     - _Dither_Scale: 1
+    - _Float: 0.58
     - _MAXDIST: 0
     - _MINDIST: 0
-    - _NormalThreshold: 0.14
+    - _NormalThreshold: 1.11
     - _OVERLAY: 0
-    - _Outline_Size: 1.61
+    - _Outline_Size: 1.25
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Threshold: 1
-    - _Tiling_Color: 21.5
-    - _Tiling_depth: 23.18
-    - _Tiling_normal: 11.8
+    - _Tiling_Color: 45.2
+    - _Tiling_depth: 23.49
+    - _Tiling_normal: 14.5
     m_Colors:
-    - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Outline_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

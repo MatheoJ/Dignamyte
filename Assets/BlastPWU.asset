@@ -18,5 +18,5 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  blastRadius: 5
+  blastRadius: 10
   blastForce: 400
