@@ -54,8 +54,6 @@ public class CharacterHealth : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().EndGame();
         }
-
-
     }
 
 
