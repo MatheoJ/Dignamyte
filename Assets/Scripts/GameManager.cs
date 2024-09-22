@@ -58,9 +58,20 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
         music.Play();
         deadSound.Stop();
         timeSinceGameStart = Time.time;
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void StopGame()
+    {
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
