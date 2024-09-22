@@ -64,7 +64,7 @@ MonoBehaviour:
   waitSound: 0
   perso: {fileID: 2756500819871857137}
   bomb: {fileID: 3719865919950926949}
-  critPossible: 0
+  critPossible: 1
   noBomb: 0
 --- !u!114 &4962491170235008913
 MonoBehaviour:
