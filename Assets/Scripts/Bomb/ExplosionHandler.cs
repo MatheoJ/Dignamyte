@@ -1,10 +1,11 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ExplosionHandler : MonoBehaviour
 {
     
-    private float delayBomb;
+    // private float delayBomb;
     private float delayChainedBomb;
     private float blastRadius;
     private float blastForce;
@@ -14,6 +15,7 @@ public class ExplosionHandler : MonoBehaviour
     [SerializeField] private LayerMask obstacleMask;
 
     [SerializeField] private GameObject explosionFx;
+    [SerializeField] private GameObject critExplosionFx;
 
     private bool _exploded;
 
@@ -21,10 +23,11 @@ public class ExplosionHandler : MonoBehaviour
     private const int EnemyLayer = 10;
     private const int BombLayer = 9;
 
+    private bool isCrit = false;
 
     private void Start()
     {
-        delayBomb = GlobalBombParam.Instance.delayBomb;
+        // delayBomb = GlobalBombParam.Instance.delayBomb;
         delayChainedBomb = GlobalBombParam.Instance.delayChainedBomb;
         blastForce = GlobalBombParam.Instance.blastForce;
         blastRadius = GlobalBombParam.Instance.blastRadius;
@@ -51,8 +54,9 @@ public class ExplosionHandler : MonoBehaviour
     }
 
     private void PlayVFXAndDestroy()
-    {
-        var obj = Instantiate(explosionFx);
+    {               
+        var obj = Instantiate(isCrit ? critExplosionFx : explosionFx);
+        
         obj.transform.position = transform.position;
         
         //TODO play sound
@@ -75,7 +79,7 @@ public class ExplosionHandler : MonoBehaviour
             {
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
-                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position);
+                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position, blastForce, blastRadius);
                 }
                 continue;
             }
@@ -84,7 +88,9 @@ public class ExplosionHandler : MonoBehaviour
             {
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
-                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position);
+                    var agent = collider.gameObject.GetComponent<NavMeshAgent>();
+                    if (agent != null) agent.enabled = false;
+                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position, blastForce, blastRadius);
                 }
                 continue;               
                          
@@ -109,7 +115,7 @@ public class ExplosionHandler : MonoBehaviour
                                     
             if (targetLayerMask == PlayerLayer)
             {
-                //TODO kill player
+                collider.gameObject.GetComponent<CharacterHealth>().Kill();
                 continue;
             }
                     
@@ -146,6 +152,15 @@ public class ExplosionHandler : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void ApplyCritStatus(float blastRadius, float blastForce, float deadZoneRadius)
+    {
+        this.blastRadius = blastRadius;
+        this.blastForce = blastForce;
+        this.deadZoneRadius = deadZoneRadius;
+
+        isCrit = true;
     }
     
     

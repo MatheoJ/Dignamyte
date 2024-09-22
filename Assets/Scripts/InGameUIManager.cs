@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +8,8 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField]
     private Text killCountText;
     
-    [SerializeField]
-    private Text timeText;
+    //[SerializeField]
+    public Text timeText;
     
     private float timeSinceGameStart = 0.0f;
     
