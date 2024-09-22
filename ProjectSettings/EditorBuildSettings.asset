@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/BombScene.unity
     guid: 1eb743039939f794b928eb2fcdb4ca4a
   - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: ab12dd783af9eba4eaf164fc6f8f2788
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f6bb3710a3f92204bb95cc3bbcae97d4
+  - enabled: 1
     path: Assets/Scenes/AiMovement.unity
     guid: 9e404c09831fdd9498fabaf38da22453
   - enabled: 1

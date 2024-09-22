@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
 
     public string gameScene;
     public string creditScene;
+    public string menuScene;
 
     public AudioSource menuTheme;
 
@@ -32,6 +33,11 @@ public class Menu : MonoBehaviour
     public void ViewCredit()
     {
         SceneManager.LoadScene(creditScene);
+    }
+
+    public void ViewMenu()
+    {
+        SceneManager.LoadScene(menuScene);
     }
     
 }
