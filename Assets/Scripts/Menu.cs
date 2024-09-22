@@ -8,6 +8,13 @@ public class Menu : MonoBehaviour
 
     public string gameScene;
     public string creditScene;
+
+    public AudioSource menuTheme;
+
+    public void Start()
+    {
+        menuTheme.Play();
+    }
     
     public void PlayGame()
     {
@@ -18,6 +25,7 @@ public class Menu : MonoBehaviour
             Destroy(obj);
         }
 
+        menuTheme.Stop();
         SceneManager.LoadScene(gameScene);
     }
 
