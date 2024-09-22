@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6158a338dffe9b647a47a43e8de71f8d
+guid: 180de28c324cf0d43a841484be8c29a9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Small_Boom
+      name: BigBombeRun
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 1
