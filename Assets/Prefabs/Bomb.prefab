@@ -157,3 +157,5 @@ MonoBehaviour:
     m_Bits: 1
   explosionFx: {fileID: 4399545804130144988, guid: 4d1d39297a3a86b47a116dae335a0668,
     type: 3}
+  critExplosionFx: {fileID: 4399545804130144988, guid: 4d1d39297a3a86b47a116dae335a0668,
+    type: 3}
