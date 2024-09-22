@@ -67,7 +67,7 @@ public class CharacterMouvement : MonoBehaviour
 
 
 
-        if (critPossible == true && noBomb == false)
+        if (critPossible && noBomb == false)
         {
             bombAnim.SetBool("BombCrit", true);
             bombAnim.SetBool("NoBomb", false);
@@ -148,35 +148,11 @@ public class CharacterMouvement : MonoBehaviour
             
             if (currentBombe > 0)
             {
-
+                compteurBombe++;
+                currentBombe--;
                 StartCoroutine(BombPlacement());
-                //bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
-
-
-                //compteurBombe++;
-                //currentBombe--;
-
-                //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
-
-                //if (CanCrit())
-                //{
-                //    var param = GlobalBombParam.Instance;
-                //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-
-                 
-                //}
+                
             }
-            //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
-
-            //if (CanCrit())
-            //{
-            //    var param = GlobalBombParam.Instance;
-            //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-
-
-            //}
-
-
         }
     }
 
@@ -203,8 +179,7 @@ public class CharacterMouvement : MonoBehaviour
 
         yield return new WaitForSeconds(waitSound);
 
-        compteurBombe++;
-        currentBombe--;
+       
 
         var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
 
@@ -215,8 +190,6 @@ public class CharacterMouvement : MonoBehaviour
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
             yield return new WaitForSeconds(0.1f);
-            critPossible = false;
-            //canCrit = false;
         }
     }
 
@@ -238,6 +211,8 @@ public class CharacterMouvement : MonoBehaviour
             critPossible = true;
             return true;
         }
+
+        critPossible = false;
         return false;
     }
 

@@ -2219,6 +2219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341549439866966908, guid: 312de892da41b5f45a6e1105d8f323d9,
         type: 3}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 1893916958}
+    - target: {fileID: 8341549439866966908, guid: 312de892da41b5f45a6e1105d8f323d9,
+        type: 3}
       propertyPath: volume
       value: 5
       objectReference: {fileID: 0}
@@ -2251,6 +2256,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1125607109}
   m_SourcePrefab: {fileID: 100100000, guid: 312de892da41b5f45a6e1105d8f323d9, type: 3}
+--- !u!1 &1893916958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3719865919950926949, guid: 312de892da41b5f45a6e1105d8f323d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1871693506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1939275589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6577941843853255314, guid: e84f829847fbd8345b0128c2f242864a,
