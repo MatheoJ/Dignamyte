@@ -2165,6 +2165,11 @@ PrefabInstance:
       propertyPath: bomb
       value: 
       objectReference: {fileID: 1485136160}
+    - target: {fileID: 8341549439866966908, guid: 312de892da41b5f45a6e1105d8f323d9,
+        type: 3}
+      propertyPath: critPossible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
