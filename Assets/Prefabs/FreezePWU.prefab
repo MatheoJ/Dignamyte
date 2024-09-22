@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5440339892520576722}
   - component: {fileID: 5696281757872859098}
   m_Layer: 8
-  m_Name: SpeedPowerUp
+  m_Name: FreezePowerUp
   m_TagString: SpeedBoost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a4f213c5413d46a3baf74c90a8bef57, type: 2}
+  - {fileID: 2100000, guid: 39d484aefa7bd0741930827534baa06f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e0739a472964e22bb873d591bae52f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poweupEffect: {fileID: 11400000, guid: bf4bf21c843654d88a929fd458129619, type: 2}
+  poweupEffect: {fileID: 11400000, guid: 09c4ede8a3c1b411f97f69ae122725ff, type: 2}
 --- !u!1 &7389862499326449324
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2071295938420813457}
   m_Layer: 8
-  m_Name: SpeedPWU
+  m_Name: FreezePWU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

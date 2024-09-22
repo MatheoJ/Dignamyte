@@ -5,6 +5,8 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     public PoweupEffect poweupEffect;
+    
+    public float timeBeforeDestroy = 20.0f;
 
     
     private void OnCollisionEnter(Collision collision)
@@ -19,12 +21,12 @@ public class Powerup : MonoBehaviour
 
     private void Update()
     {
-        //StartCoroutine(PowerupGone());
+        StartCoroutine(PowerupGone());
     }
 
     private IEnumerator PowerupGone()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(timeBeforeDestroy);
         Destroy(gameObject);
     }
 
