@@ -25,6 +25,8 @@ public class ExplosionHandler : MonoBehaviour
 
     private bool isCrit = false;
 
+
+    private GameManager _gameManager;
     private void Start()
     {
         // delayBomb = GlobalBombParam.Instance.delayBomb;
@@ -32,6 +34,8 @@ public class ExplosionHandler : MonoBehaviour
         blastForce = GlobalBombParam.Instance.blastForce;
         blastRadius = GlobalBombParam.Instance.blastRadius;
         deadZoneRadius = GlobalBombParam.Instance.deadZoneRadius;
+
+        _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     
@@ -88,7 +92,6 @@ public class ExplosionHandler : MonoBehaviour
             if (targetLayerMask == EnemyLayer)
             {
                 
-                //TODO fetch manager and increment kill count
                 
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
@@ -125,6 +128,8 @@ public class ExplosionHandler : MonoBehaviour
                     
             if (targetLayerMask == EnemyLayer)
             {
+                
+                _gameManager.IncrementKillCount();
                 collider.gameObject.GetComponent<BurrySelf>()?.StartLerp();
                 continue;               
             }
