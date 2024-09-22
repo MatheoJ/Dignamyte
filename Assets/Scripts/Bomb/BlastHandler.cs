@@ -53,7 +53,7 @@ public class BlastHandler : MonoBehaviour
         rigidbody.AddForce(new Vector3(0, customBlastForce / 2, 0));
  
         yield return new WaitForFixedUpdate();
-        yield return new WaitUntil(() => rigidbody.velocity.magnitude < 0.05f);
+        yield return new WaitUntil(() => rigidbody.velocity.magnitude < 0.2f);
         yield return new WaitForSeconds(0.25f);
 
         playerController.enabled = true;
