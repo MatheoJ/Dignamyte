@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
             if(areEnemiesStunned)
             {
                 timeSinceStuntStart = Time.time;
-                inGameUIManager.startFreezeClock(stuntTime);
+                inGameUIManager?.startFreezeClock(stuntTime);
             }
         }
     }
