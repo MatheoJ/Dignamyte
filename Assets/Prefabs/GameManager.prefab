@@ -50,7 +50,9 @@ MonoBehaviour:
   leaderBoardScene: 0
   music: {fileID: 1177916856519854375}
   deadSound: {fileID: -2871335952885425057}
-  timeBeforeChangingScene: 1
+  timeBeforeChangingScene: 3
+  deathAnimator: {fileID: 7446814350915894460, guid: 8ee7c28a5104e7d42b7fd255f8fc7edb,
+    type: 3}
   killCount: 0
   timeSinceGameStart: 0
   totaltime: 0

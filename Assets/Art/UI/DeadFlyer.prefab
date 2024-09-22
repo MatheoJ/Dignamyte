@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1013686903367361487}
   - component: {fileID: 2885966979470962749}
   - component: {fileID: 6988669485754878229}
-  - component: {fileID: 7446814350915894460}
+  - component: {fileID: 521716592173676459}
   m_Layer: 0
   m_Name: DeadFlyer
   m_TagString: Untagged
@@ -86,25 +86,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &7446814350915894460
-Animator:
-  serializedVersion: 7
+--- !u!111 &521716592173676459
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8011183791380619449}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aadbd64baf2acb146bb6c55534eab4d5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 5313bcb174290b5439926d78c7ba0169, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

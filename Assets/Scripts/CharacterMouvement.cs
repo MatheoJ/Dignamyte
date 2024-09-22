@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Properties;
 using UnityEngine;
@@ -174,7 +174,11 @@ public class CharacterMouvement : MonoBehaviour
         {
             bombAnim.SetTrigger("SmallPlanted");
         }
-      
+        
+        if(noBomb)
+        {
+            GameObject.FindGameObjectWithTag("InGameUIManager").GetComponent<InGameUIManager>().noBombSound.Play();
+        }
 
 
         bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);

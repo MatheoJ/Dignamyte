@@ -22,6 +22,10 @@ public class InGameUIManager : MonoBehaviour
     
     private float timeSinceGameStart = 0.0f;
     
+    public AudioSource powerUpSound;
+    
+    public AudioSource noBombSound;
+    
     public void UpdateKillCount(int killCount)
     {
         killCountText.text = "Kills: " + killCount;

@@ -116,14 +116,13 @@ public class GameManager : MonoBehaviour
         music.Stop();
         
         totaltime = Time.time - timeSinceGameStart;
-        StartCoroutine(ChangeScene());
         
         //Stop everything
         GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMouvement>().enabled = false;
-        
 
         AreEnemiesStunned = true;
-
+        
+        StartCoroutine(ChangeScene());
 
     }
 

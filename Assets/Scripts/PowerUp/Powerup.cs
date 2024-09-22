@@ -16,7 +16,9 @@ public class Powerup : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-
+            // Play the sound in the ui manager
+            GameObject.FindGameObjectWithTag("InGameUIManager").GetComponent<InGameUIManager>().powerUpSound.Play();
+            
             pickUpPWU.PlayOneShot(pickUpPWU.clip, volume);
             // Destroy the parent of the object as well
             if (transform.parent != null)

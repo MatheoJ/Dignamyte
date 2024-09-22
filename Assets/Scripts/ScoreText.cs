@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreText : MonoBehaviour
 {
     public Text score;
     public Text time;
+    public string gameScene;
    // public Text inTime;
 
     int scoreCount;
@@ -23,10 +25,19 @@ public class ScoreText : MonoBehaviour
        // time.text = "Time: " + minutes.ToString("00") + ":" + seconds.ToString("00");
 
         Debug.Log("Current Kill Count:" + scoreCount);
-        score.text = "Kill Count : " + scoreCount;
-        time.text = "Time Count : " + minutes.ToString("00") + ":" + seconds.ToString("00"); ;
+        score.text = ""+scoreCount;
+        time.text =  minutes.ToString("00") + ":" + seconds.ToString("00"); ;
         Debug.Log("Current Kill Count:" + (int)timeCount);
 
+    }
+    
+    void Update()
+    {
+        //Restart if R is pressed
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(gameScene);
+        }
     }
 
 }
