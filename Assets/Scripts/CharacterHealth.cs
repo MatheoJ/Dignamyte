@@ -39,14 +39,10 @@ public class CharacterHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-       
-            if (collision.gameObject.tag == "Enemy")
-            {
-                 Kill();
-
-            }
-        
-      
+        if (collision.gameObject.tag == "Ennemi")
+        {
+            Kill();
+        }
     }
 
 
