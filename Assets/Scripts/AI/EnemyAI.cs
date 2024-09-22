@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.AreEnemiesStunned)
+        if(agent.enabled && gameManager.AreEnemiesStunned)
         {
             agent.isStopped = true;
             return;

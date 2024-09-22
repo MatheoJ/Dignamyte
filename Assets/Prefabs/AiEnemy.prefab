@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -3910770046256741288}
   m_Layer: 10
   m_Name: AiEnemy
-  m_TagString: Finish
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5.5
+  m_Speed: 7.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -139,7 +139,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.47
+  m_Radius: 0.73
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

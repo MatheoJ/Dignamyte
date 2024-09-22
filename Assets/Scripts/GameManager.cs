@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
             if(areEnemiesStunned)
             {
                 timeSinceStuntStart = Time.time;
+                inGameUIManager.startFreezeClock(stuntTime);
             }
         }
     }
@@ -67,11 +68,15 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1;
+        inGameUIManager.gameObject.SetActive(true);
+        
     }
 
     public void StopGame()
     {
         Time.timeScale = 0;
+        //Hide in game UI
+        inGameUIManager.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
