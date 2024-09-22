@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,16 +14,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int leaderBoardScene;
         
     
-    private int killCount = 0;
+    public int killCount = 0;
     
-    private float timeSinceGameStart;
+    public float timeSinceGameStart;
     
     private bool areEnemiesStunned = false; 
     
     private float stuntTime = 5.0f;
     
     private float timeSinceStuntStart = 0.0f;
-    
+
+    public float totaltime;
+
+
+    public Text timeTextCount;
     
     public bool AreEnemiesStunned
     {
@@ -78,8 +83,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+   
+
     public void EndGame()
     {
-       SceneManager.LoadScene(leaderBoardScene);
+        
+        
+
+        totaltime = Time.time - timeSinceGameStart;
+
+        SceneManager.LoadScene(leaderBoardScene);
+        
     }
 }

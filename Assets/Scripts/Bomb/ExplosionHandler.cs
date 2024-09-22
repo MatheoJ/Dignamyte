@@ -1,10 +1,11 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ExplosionHandler : MonoBehaviour
 {
     
-    private float delayBomb;
+    // private float delayBomb;
     private float delayChainedBomb;
     private float blastRadius;
     private float blastForce;
@@ -24,7 +25,7 @@ public class ExplosionHandler : MonoBehaviour
 
     private void Start()
     {
-        delayBomb = GlobalBombParam.Instance.delayBomb;
+        // delayBomb = GlobalBombParam.Instance.delayBomb;
         delayChainedBomb = GlobalBombParam.Instance.delayChainedBomb;
         blastForce = GlobalBombParam.Instance.blastForce;
         blastRadius = GlobalBombParam.Instance.blastRadius;
@@ -84,6 +85,8 @@ public class ExplosionHandler : MonoBehaviour
             {
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
+                    var agent = collider.gameObject.GetComponent<NavMeshAgent>();
+                    if (agent != null) agent.enabled = false;
                     collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position);
                 }
                 continue;               
@@ -109,7 +112,7 @@ public class ExplosionHandler : MonoBehaviour
                                     
             if (targetLayerMask == PlayerLayer)
             {
-                //TODO kill player
+                collider.gameObject.GetComponent<CharacterHealth>().Kill();
                 continue;
             }
                     
