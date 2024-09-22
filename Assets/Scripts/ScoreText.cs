@@ -19,7 +19,7 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreCount = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().KillCount;
-        score.text = "Kill Count : " + scoreCount;
+        //scoreCount = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().KillCount;
+        //score.text = "Kill Count : " + scoreCount;
     }
 }
