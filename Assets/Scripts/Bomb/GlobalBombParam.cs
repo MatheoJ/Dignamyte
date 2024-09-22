@@ -7,7 +7,7 @@ public class GlobalBombParam : MonoBehaviour
 {
     public static GlobalBombParam Instance { get; set; }
     
-    [SerializeField] public float delayBomb;
+    // [SerializeField] public float delayBomb;
     [SerializeField] public float delayChainedBomb;
     [SerializeField] public float blastRadius;
     [SerializeField] public float blastForce;

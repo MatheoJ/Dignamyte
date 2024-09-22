@@ -33,12 +33,12 @@ public class EnemyAI : MonoBehaviour
         {
             agent.isStopped = true;
             return;
-        }else if(agent.isStopped)
+        }else if(agent.enabled && agent.isStopped)
         {
             agent.isStopped = false;
         }
         
-        if(ShouldChangeDestination())
+        if(ShouldChangeDestination() && agent.enabled)
         {
             ChangeDestinationToPlayerPosition();
         }
@@ -78,6 +78,8 @@ public class EnemyAI : MonoBehaviour
     
     public void kill()
     {
+        //TODO Animation here
         Destroy(gameObject);
     }
+    
 }
