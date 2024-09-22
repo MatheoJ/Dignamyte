@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.Properties;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CharacterMouvement : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class CharacterMouvement : MonoBehaviour
     //Animator anim;
     //public GameObject perso;
     Animator bombAnim;
-    public GameObject bomb;
+    [FormerlySerializedAs("bomb")] public GameObject characterAnim;
     public bool critPossible;
     public bool noBomb;
 
@@ -44,7 +45,7 @@ public class CharacterMouvement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         currentBombe = limiteBombe;
         //anim = perso.GetComponent<Animator>();
-        bombAnim = bomb.GetComponent<Animator>();
+        bombAnim = characterAnim.GetComponent<Animator>();
         critPossible = false;
         noBomb = false;
         //canCrit = false;
