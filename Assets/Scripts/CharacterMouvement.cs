@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Properties;
 using UnityEngine;
 
 public class CharacterMouvement : MonoBehaviour
@@ -27,10 +28,16 @@ public class CharacterMouvement : MonoBehaviour
     public AudioSource bombEnterrement;
     public float waitSound;
 
+
+    //Animation
+    Animator anim;
+    public GameObject perso;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         currentBombe = limiteBombe;
+        anim = perso.GetComponent<Animator>();
         //canCrit = false;
     }
     
@@ -83,7 +90,8 @@ public class CharacterMouvement : MonoBehaviour
         //_rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
 
         _rb.MovePosition(transform.position +_input * _speed * Time.deltaTime);
-
+        anim.SetBool("NoBomb", false);
+        anim.SetBool("NoCrit", false);
 
 
         //test bombAdd
@@ -97,30 +105,59 @@ public class CharacterMouvement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
+            
             if (currentBombe > 0)
             {
-                compteurBombe++;
-                currentBombe--;
 
                 StartCoroutine(BombPlacement());
+                //bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
+
+
+                //compteurBombe++;
+                //currentBombe--;
+
+                //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+
+                //if (CanCrit())
+                //{
+                //    var param = GlobalBombParam.Instance;
+                //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+
+                 
+                //}
             }
+            //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+
+            //if (CanCrit())
+            //{
+            //    var param = GlobalBombParam.Instance;
+            //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+
+
+            //}
+
+
         }
     }
 
 
     private IEnumerator BombPlacement()
     {
-
+        anim.SetTrigger("Placement");
         bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
 
         yield return new WaitForSeconds(waitSound);
 
-       
+        compteurBombe++;
+        currentBombe--;
 
         var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
 
+      
         if (CanCrit())
         {
+            anim.SetTrigger("PlacementCrit");
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
 
