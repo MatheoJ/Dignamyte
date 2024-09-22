@@ -18,7 +18,13 @@ public class CharacterMouvement : MonoBehaviour
     public int currentBombe;
     public int compteurBombe = 0;
 
-    public bool canCrit;
+    //public bool canCrit;
+
+
+    //Audio
+    //public AudioClip bombEnter;
+    public float volume;
+    public AudioSource bombEnterrement;
 
     void Start()
     {
@@ -94,6 +100,9 @@ public class CharacterMouvement : MonoBehaviour
 
             if (currentBombe > 0)
             {
+                bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
+
+
                 compteurBombe++;
                 currentBombe--;
 
@@ -104,7 +113,7 @@ public class CharacterMouvement : MonoBehaviour
                     var param = GlobalBombParam.Instance;
                     gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
 
-                    canCrit = false;
+                    //canCrit = false;
                 }
             }
             //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
