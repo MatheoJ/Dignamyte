@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private InGameUIManager inGameUIManager;
 
     [SerializeField] private int leaderBoardScene;
+
+    [SerializeField] private AudioSource music;
         
     
     public int killCount = 0;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        music.Play();
         timeSinceGameStart = Time.time;
     }
 
