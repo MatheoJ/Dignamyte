@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             {
                 timeSinceStuntStart = Time.time;
                 inGameUIManager?.startFreezeClock(stuntTime);
+                inGameUIManager?.displayFreezeText();
             }
         }
     }
