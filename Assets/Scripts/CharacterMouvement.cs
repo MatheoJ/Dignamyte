@@ -32,12 +32,18 @@ public class CharacterMouvement : MonoBehaviour
     //Animation
     Animator anim;
     public GameObject perso;
+    Animator bombAnim;
+    public GameObject bomb;
+    public bool critPossible;
+    public bool noBomb;
+
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         currentBombe = limiteBombe;
         anim = perso.GetComponent<Animator>();
+        bombAnim = bomb.GetComponent<Animator>();
         //canCrit = false;
     }
     
@@ -90,8 +96,25 @@ public class CharacterMouvement : MonoBehaviour
         //_rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
 
         _rb.MovePosition(transform.position +_input * _speed * Time.deltaTime);
-        anim.SetBool("NoBomb", false);
-        anim.SetBool("NoCrit", false);
+
+
+        if(critPossible)
+        {
+            bombAnim.SetBool("BombCrit", true);
+            bombAnim.SetBool("NoBomb", false);
+
+        }else if(currentBombe == 0)
+        {
+            
+            bombAnim.SetBool("BombCrit", false);
+            bombAnim.SetBool("NoBomb", true);
+        }
+        else
+        {
+            bombAnim.SetBool("BombCrit", false);
+            bombAnim.SetBool("NoBomb", false);
+        }
+
 
 
         //test bombAdd
@@ -145,6 +168,18 @@ public class CharacterMouvement : MonoBehaviour
     private IEnumerator BombPlacement()
     {
         anim.SetTrigger("Placement");
+
+        if(critPossible)
+        {
+            bombAnim.SetTrigger("CritPlanted");
+        }
+        else 
+        {
+
+            bombAnim.SetTrigger("SmallPlanted");
+        }
+
+
         bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
 
         yield return new WaitForSeconds(waitSound);
@@ -157,10 +192,10 @@ public class CharacterMouvement : MonoBehaviour
       
         if (CanCrit())
         {
-            anim.SetTrigger("PlacementCrit");
+            
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-
+            critPossible = false;
             //canCrit = false;
         }
     }
@@ -178,8 +213,10 @@ public class CharacterMouvement : MonoBehaviour
 
     private bool CanCrit()
     {
-        if(compteurBombe % 3 == 0)
+        if(compteurBombe % 3 == 0 && currentBombe != 0)
         {
+            critPossible = true;
+
             return true;
         }
         return false;

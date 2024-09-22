@@ -1242,6 +1242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas-Tips
       objectReference: {fileID: 0}
+    - target: {fileID: 3410048676355258740, guid: 5a5e0df9a5a3178489fbb72a076a2916,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
