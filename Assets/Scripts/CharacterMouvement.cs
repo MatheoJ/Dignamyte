@@ -54,7 +54,36 @@ public class CharacterMouvement : MonoBehaviour
         GatherInput();
         Look();
         PlaceBomb();
-        
+
+
+        if(currentBombe == 0)
+        {
+            noBomb = true;
+        }
+        else
+        {
+            noBomb = false;
+        }
+
+
+
+        if (critPossible && noBomb == false)
+        {
+            bombAnim.SetBool("BombCrit", true);
+            bombAnim.SetBool("NoBomb", false);
+
+        }
+        else if (noBomb == true && critPossible == false)
+        {
+
+            bombAnim.SetBool("BombCrit", false);
+            bombAnim.SetBool("NoBomb", true);
+        }
+        else
+        {
+            bombAnim.SetBool("BombCrit", false);
+            bombAnim.SetBool("NoBomb", false);
+        }
     }
 
     private void FixedUpdate()
@@ -100,22 +129,7 @@ public class CharacterMouvement : MonoBehaviour
         _rb.MovePosition(transform.position +_input * _speed * Time.deltaTime);
 
 
-        if(critPossible)
-        {
-            bombAnim.SetBool("BombCrit", true);
-            bombAnim.SetBool("NoBomb", false);
-
-        }else if(currentBombe == 0)
-        {
-            
-            bombAnim.SetBool("BombCrit", false);
-            bombAnim.SetBool("NoBomb", true);
-        }
-        else
-        {
-            bombAnim.SetBool("BombCrit", false);
-            bombAnim.SetBool("NoBomb", false);
-        }
+   
 
 
 
@@ -134,35 +148,11 @@ public class CharacterMouvement : MonoBehaviour
             
             if (currentBombe > 0)
             {
-
+                compteurBombe++;
+                currentBombe--;
                 StartCoroutine(BombPlacement());
-                //bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
-
-
-                //compteurBombe++;
-                //currentBombe--;
-
-                //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
-
-                //if (CanCrit())
-                //{
-                //    var param = GlobalBombParam.Instance;
-                //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-
-                 
-                //}
+                
             }
-            //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
-
-            //if (CanCrit())
-            //{
-            //    var param = GlobalBombParam.Instance;
-            //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-
-
-            //}
-
-
         }
     }
 
@@ -171,13 +161,16 @@ public class CharacterMouvement : MonoBehaviour
     {
         anim.SetTrigger("Placement");
 
-        if(critPossible)
+      
+
+
+
+        if(critPossible == true && noBomb == false)
         {
             bombAnim.SetTrigger("CritPlanted");
         }
-        else 
+        else if (critPossible == false && noBomb == false)
         {
-
             bombAnim.SetTrigger("SmallPlanted");
         }
 
@@ -186,8 +179,7 @@ public class CharacterMouvement : MonoBehaviour
 
         yield return new WaitForSeconds(waitSound);
 
-        compteurBombe++;
-        currentBombe--;
+       
 
         var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
 
@@ -197,8 +189,7 @@ public class CharacterMouvement : MonoBehaviour
             
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-            //critPossible = false;
-            //canCrit = false;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -215,12 +206,13 @@ public class CharacterMouvement : MonoBehaviour
 
     private bool CanCrit()
     {
-        if(compteurBombe % 3 == 0 && currentBombe != 0)
+        if(compteurBombe % 3 == 0)
         {
             critPossible = true;
-
             return true;
         }
+
+        critPossible = false;
         return false;
     }
 

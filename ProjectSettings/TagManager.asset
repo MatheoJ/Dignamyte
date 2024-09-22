@@ -12,6 +12,7 @@ TagManager:
   - BombParam
   - PwuSpawner
   - InGameUIManager
+  - pwu
   layers:
   - Default
   - TransparentFX
