@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +7,17 @@ public class Powerup : MonoBehaviour
     public PoweupEffect poweupEffect;
     
     public float timeBeforeDestroy = 20.0f;
-    
+
+    public float volume = 5;
+    public AudioSource pickUpPWU;
+   // public GameManager perso;
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
+
+            pickUpPWU.PlayOneShot(pickUpPWU.clip, volume);
             // Destroy the parent of the object as well
             if (transform.parent != null)
             {
