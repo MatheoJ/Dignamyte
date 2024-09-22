@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweupEffect: {fileID: 11400000, guid: 9a24eb125504f47aabec510f1fead90c, type: 2}
+  cardPick: {fileID: 437215402}
+  volume: 5
 --- !u!1 &237518994
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,11 +306,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd314e25004f8d74b8111c40587ab1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBomb: 3
   delayChainedBomb: 3
   blastRadius: 3
   blastForce: 200
   deadZoneRadius: 3
+  critBlastRadius: 0
+  critBlastForce: 0
+  critDeadZoneRadius: 0
 --- !u!4 &380460610
 Transform:
   m_ObjectHideFlags: 0
@@ -499,6 +503,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312de892da41b5f45a6e1105d8f323d9, type: 3}
+--- !u!82 &437215402 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1186205472311724279, guid: 312de892da41b5f45a6e1105d8f323d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 403468066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &442046581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2041950675350827586, guid: d1e08b97ccec4490890ea65cb48422c9,
@@ -518,6 +528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweupEffect: {fileID: 11400000, guid: 53edc47b14329415390d014a26b98c91, type: 2}
+  cardPick: {fileID: 0}
+  volume: 0
 --- !u!1 &744681185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2041950675350827586, guid: d1e08b97ccec4490890ea65cb48422c9,
@@ -537,6 +549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweupEffect: {fileID: 11400000, guid: e67f985f961884631827c9736e7d3eb3, type: 2}
+  cardPick: {fileID: 0}
+  volume: 0
 --- !u!1 &821406225
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +744,10 @@ MonoBehaviour:
   _turnSpeed: 360
   bombPrefab: {fileID: 0}
   limiteBombe: 3
+  currentBombe: 0
+  compteurBombe: 0
+  volume: 0
+  bombEnterrement: {fileID: 0}
 --- !u!23 &874000501
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -902,6 +920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweupEffect: {fileID: 11400000, guid: bf4bf21c843654d88a929fd458129619, type: 2}
+  cardPick: {fileID: 0}
+  volume: 0
 --- !u!1001 &1218694864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,6 +1300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweupEffect: {fileID: 11400000, guid: bf4bf21c843654d88a929fd458129619, type: 2}
+  cardPick: {fileID: 0}
+  volume: 0
 --- !u!1001 &1724965457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1874,6 +1896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweupEffect: {fileID: 11400000, guid: bf4bf21c843654d88a929fd458129619, type: 2}
+  cardPick: {fileID: 0}
+  volume: 0
 --- !u!1001 &1975500350
 PrefabInstance:
   m_ObjectHideFlags: 0

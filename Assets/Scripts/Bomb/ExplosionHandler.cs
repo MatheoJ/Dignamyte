@@ -79,7 +79,7 @@ public class ExplosionHandler : MonoBehaviour
             {
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
-                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAway(transform.position, blastForce, blastRadius);
+                    collider.gameObject.GetComponent<BlastHandler>()?.BlastAwayPlayer(transform.position, blastForce, blastRadius);
                 }
                 continue;
             }
