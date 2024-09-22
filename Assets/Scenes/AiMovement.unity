@@ -2601,6 +2601,11 @@ PrefabInstance:
       propertyPath: inGameUIManager
       value: 
       objectReference: {fileID: 1845745355}
+    - target: {fileID: 93029370697611130, guid: 7c40caa4bb425eb4282523894c203bba,
+        type: 3}
+      propertyPath: leaderBoardScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 484530390217889147, guid: 7c40caa4bb425eb4282523894c203bba,
         type: 3}
       propertyPath: m_LocalPosition.x
