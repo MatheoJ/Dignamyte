@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Properties;
 using UnityEngine;
 
 public class CharacterMouvement : MonoBehaviour
@@ -30,12 +31,13 @@ public class CharacterMouvement : MonoBehaviour
 
     //Animation
     Animator anim;
+    public GameObject perso;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         currentBombe = limiteBombe;
-        anim = gameObject.GetComponent<Animator>();
+        anim = perso.GetComponent<Animator>();
         //canCrit = false;
     }
     
@@ -88,7 +90,8 @@ public class CharacterMouvement : MonoBehaviour
         //_rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
 
         _rb.MovePosition(transform.position +_input * _speed * Time.deltaTime);
-
+        anim.SetBool("NoBomb", false);
+        anim.SetBool("NoCrit", false);
 
 
         //test bombAdd
@@ -102,8 +105,8 @@ public class CharacterMouvement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-         
 
+            
             if (currentBombe > 0)
             {
 
@@ -141,18 +144,17 @@ public class CharacterMouvement : MonoBehaviour
 
     private IEnumerator BombPlacement()
     {
-
+        anim.SetTrigger("Placement");
         bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
 
         yield return new WaitForSeconds(waitSound);
-
-        anim.SetTrigger("Placement");
 
         compteurBombe++;
         currentBombe--;
 
         var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
 
+      
         if (CanCrit())
         {
             anim.SetTrigger("PlacementCrit");
