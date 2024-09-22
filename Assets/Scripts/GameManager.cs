@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private InGameUIManager inGameUIManager;
 
-    [SerializeField] private int leaderBoardScene;
+    [SerializeField] private string leaderBoardScene;
 
     [SerializeField] private AudioSource music;
     
@@ -112,11 +112,14 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         deadSound.PlayOneShot(deadSound.clip);
+        music.Stop();
+        
         totaltime = Time.time - timeSinceGameStart;
         StartCoroutine(ChangeScene());
         
         //Stop everything
         GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMouvement>().enabled = false;
+        
 
         AreEnemiesStunned = true;
 
