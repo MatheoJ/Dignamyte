@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -14,7 +15,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int leaderBoardScene;
 
     [SerializeField] private AudioSource music;
+    
         
+    [SerializeField] private AudioSource deadSound;
+    [SerializeField] private float timeBeforeChangingScene;
     
     public int killCount = 0;
     
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         music.Play();
+        deadSound.Stop();
         timeSinceGameStart = Time.time;
     }
 
@@ -90,12 +95,22 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        
-        
-
+        deadSound.PlayOneShot(deadSound.clip);
         totaltime = Time.time - timeSinceGameStart;
-
-        SceneManager.LoadScene(leaderBoardScene);
+        StartCoroutine(ChangeScene());
         
+        //Stop everything
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMouvement>().enabled = false;
+
+        AreEnemiesStunned = true;
+
+
+    }
+
+
+    private IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(timeBeforeChangingScene);
+        SceneManager.LoadScene(leaderBoardScene);
     }
 }
