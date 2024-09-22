@@ -10,6 +10,7 @@ TagManager:
   - EnemySpawningPoint
   - GameManager
   - BombParam
+  - PwuSpawner
   layers:
   - Default
   - TransparentFX
