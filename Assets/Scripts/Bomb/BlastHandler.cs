@@ -32,6 +32,35 @@ public class BlastHandler : MonoBehaviour
         StartCoroutine(ApplyBlast(otherPosition, customBlastForce, customBlastRadius));
     }
     
+    public void BlastAwayPlayer(Vector3 otherPosition, float customBlastForce, float customBlastRadius)
+    {
+        StartCoroutine(ApplyBlastPlayer(otherPosition, customBlastForce, customBlastRadius));
+    }
+
+    public IEnumerator ApplyBlastPlayer(Vector3 otherPosition, float customBlastForce, float customBlastRadius)
+    {
+        yield return null;
+
+        var playerController = GetComponent<CharacterMouvement>();
+
+        playerController.enabled = false;
+ 
+        var rigidbody = GetComponent<Rigidbody>();
+        rigidbody.isKinematic = false;
+        rigidbody.useGravity = true;
+         
+        rigidbody.AddExplosionForce(customBlastForce, otherPosition, customBlastRadius);
+        rigidbody.AddForce(new Vector3(0, customBlastForce / 2, 0));
+ 
+        yield return new WaitForFixedUpdate();
+        yield return new WaitUntil(() => rigidbody.velocity.magnitude < 0.05f);
+        yield return new WaitForSeconds(0.25f);
+
+        playerController.enabled = true;
+        
+        yield return null;       
+    }
+    
     public IEnumerator ApplyBlast(Vector3 otherPosition, float customBlastForce, float customBlastRadius)
     {
         yield return null;
