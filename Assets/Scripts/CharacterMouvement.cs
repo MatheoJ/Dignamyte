@@ -10,6 +10,7 @@ public class CharacterMouvement : MonoBehaviour
     public float _speed = 5.0f;
    [SerializeField] private float _turnSpeed = 360;
     [SerializeField] private GameObject bombPrefab; 
+    [SerializeField] private GameObject critBombPrefab; 
     private Vector3 _input;
 
 
@@ -181,7 +182,7 @@ public class CharacterMouvement : MonoBehaviour
 
        
 
-        var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+        var gameObject = Instantiate(critPossible ?  critBombPrefab : bombPrefab, transform.position, transform.rotation);
 
       
         if (CanCrit())
