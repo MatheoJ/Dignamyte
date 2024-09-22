@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BombScene.unity
     guid: 1eb743039939f794b928eb2fcdb4ca4a
+  - enabled: 1
+    path: Assets/Scenes/AiMovement.unity
+    guid: 9e404c09831fdd9498fabaf38da22453
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

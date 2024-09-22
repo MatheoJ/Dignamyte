@@ -75,8 +75,25 @@ public class CharacterMouvement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bombPrefab, transform.position, transform.rotation);
+            
+            var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+            
+            if(CanCrit())
+            {
+                var param = GlobalBombParam.Instance;
+                gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+                
+                
+            }
+            
+            
         }
+    }
+
+    private bool CanCrit()
+    {
+        //TODO add logic here
+        return true;
     }
 
 }

@@ -12,6 +12,11 @@ public class GlobalBombParam : MonoBehaviour
     [SerializeField] public float blastRadius;
     [SerializeField] public float blastForce;
     [SerializeField] public float deadZoneRadius;
+    
+    [SerializeField] public float critBlastRadius;
+    [SerializeField] public float critBlastForce;
+    [SerializeField] public float critDeadZoneRadius;
+        
 
     public static event Action OnCompleteEvent;
     
