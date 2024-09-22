@@ -33,7 +33,9 @@ public class EnemyAI : MonoBehaviour
         {
             agent.isStopped = true;
             return;
-        }else if(agent.enabled && agent.isStopped)
+        }
+        
+        if(agent.enabled && agent.isStopped)
         {
             agent.isStopped = false;
         }

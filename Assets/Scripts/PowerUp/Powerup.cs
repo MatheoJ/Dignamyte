@@ -6,13 +6,17 @@ public class Powerup : MonoBehaviour
 {
     public PoweupEffect poweupEffect;
 
+    public AudioSource cardPick;
+    public float volume;
     
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
+            cardPick.PlayOneShot(cardPick.clip, volume);
             Destroy(gameObject);
             poweupEffect.Apply(collision.gameObject);
+
         }
        
     }

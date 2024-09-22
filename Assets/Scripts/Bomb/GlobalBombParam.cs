@@ -18,7 +18,6 @@ public class GlobalBombParam : MonoBehaviour
     [SerializeField] public float critDeadZoneRadius;
         
 
-    public static event Action OnCompleteEvent;
     
     private void Start()
     {
