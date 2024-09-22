@@ -25,6 +25,8 @@ public class ExplosionHandler : MonoBehaviour
 
     private bool isCrit = false;
 
+
+    private GameManager _gameManager;
     private void Start()
     {
         // delayBomb = GlobalBombParam.Instance.delayBomb;
@@ -32,6 +34,8 @@ public class ExplosionHandler : MonoBehaviour
         blastForce = GlobalBombParam.Instance.blastForce;
         blastRadius = GlobalBombParam.Instance.blastRadius;
         deadZoneRadius = GlobalBombParam.Instance.deadZoneRadius;
+
+        _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     
@@ -46,6 +50,7 @@ public class ExplosionHandler : MonoBehaviour
     {
         if (!_exploded)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMouvement>().BombAdd();
             _exploded = true;
             PlayVFXAndDestroy();
             // Destroy(this.gameObject);    
@@ -86,6 +91,8 @@ public class ExplosionHandler : MonoBehaviour
         
             if (targetLayerMask == EnemyLayer)
             {
+                
+                
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
                     var agent = collider.gameObject.GetComponent<NavMeshAgent>();
@@ -121,7 +128,9 @@ public class ExplosionHandler : MonoBehaviour
                     
             if (targetLayerMask == EnemyLayer)
             {
-                collider.gameObject.GetComponent<EnemyAI>()?.kill();
+                
+                _gameManager.IncrementKillCount();
+                collider.gameObject.GetComponent<BurrySelf>()?.StartLerp();
                 continue;               
             }
                                                

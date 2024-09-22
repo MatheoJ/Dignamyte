@@ -10,6 +10,9 @@ public class EnemySpwaningSystem : MonoBehaviour
     
     // List of transform objects that represent the spawn points
     public List<Transform> spawnPoints;
+
+    public bool spawnActivated { get; set; } = false;
+
     
     private float lastSpawnTime = 0.0f;
     
@@ -33,7 +36,7 @@ public class EnemySpwaningSystem : MonoBehaviour
     
     bool ShouldSpawnEnemy()
     {
-        if(Time.time - lastSpawnTime > spawnInterval)
+        if(Time.time - lastSpawnTime > spawnInterval && spawnActivated)
         {
             lastSpawnTime = Time.time;
             return true;

@@ -9,7 +9,6 @@ public class InvinciblePWU : PoweupEffect
 
     public override void Apply(GameObject target)
     {
-
         target.GetComponent<CharacterHealth>().invincible = true;
     }
 

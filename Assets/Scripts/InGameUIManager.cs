@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
 {
-    [SerializeField]
-    private Text killCountText;
+    public TextMeshProUGUI killCountText;
     
     //[SerializeField]
-    public Text timeText;
+    public TextMeshProUGUI timeText;
+    
+    public Image freezeClock;
+    
+    public Image invincibilityClock;
     
     private float timeSinceGameStart = 0.0f;
     
@@ -42,5 +46,43 @@ public class InGameUIManager : MonoBehaviour
     void Update()
     {
         UpdateTimeSinceStart(Time.time - timeSinceGameStart);
+    }
+    
+    public void startFreezeClock(float duration)
+    {
+        freezeClock.fillAmount = 1.0f;
+        StartCoroutine(UpdateFreezeClock(duration));
+    }
+    
+    IEnumerator UpdateFreezeClock(float duration)
+    {
+        float timePassed = 0.0f;
+        while (timePassed < duration)
+        {
+            freezeClock.fillAmount = 1.0f - timePassed / duration;
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+        
+        freezeClock.fillAmount = 1.0f;
+    }
+    
+    public void startInvincibilityClock(float duration)
+    {
+        invincibilityClock.fillAmount = 1.0f;
+        StartCoroutine(UpdateInvincibilityClock(duration));
+    }
+    
+    IEnumerator UpdateInvincibilityClock(float duration)
+    {
+        float timePassed = 0.0f;
+        while (timePassed < duration)
+        {
+            invincibilityClock.fillAmount = 1.0f - timePassed / duration;
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+        
+        invincibilityClock.fillAmount = 1.0f;
     }
 }
