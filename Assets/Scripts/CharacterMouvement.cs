@@ -27,10 +27,15 @@ public class CharacterMouvement : MonoBehaviour
     public AudioSource bombEnterrement;
     public float waitSound;
 
+
+    //Animation
+    Animator anim;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         currentBombe = limiteBombe;
+        anim = gameObject.GetComponent<Animator>();
         //canCrit = false;
     }
     
@@ -97,13 +102,39 @@ public class CharacterMouvement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+         
+
             if (currentBombe > 0)
             {
-                compteurBombe++;
-                currentBombe--;
 
                 StartCoroutine(BombPlacement());
+                //bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
+
+
+                //compteurBombe++;
+                //currentBombe--;
+
+                //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+
+                //if (CanCrit())
+                //{
+                //    var param = GlobalBombParam.Instance;
+                //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+
+                 
+                //}
             }
+            //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+
+            //if (CanCrit())
+            //{
+            //    var param = GlobalBombParam.Instance;
+            //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+
+
+            //}
+
+
         }
     }
 
@@ -115,12 +146,16 @@ public class CharacterMouvement : MonoBehaviour
 
         yield return new WaitForSeconds(waitSound);
 
-       
+        anim.SetTrigger("Placement");
+
+        compteurBombe++;
+        currentBombe--;
 
         var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
 
         if (CanCrit())
         {
+            anim.SetTrigger("PlacementCrit");
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
 
