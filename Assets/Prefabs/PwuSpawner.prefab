@@ -483,6 +483,9 @@ MonoBehaviour:
   - {fileID: 7389862499326449324, guid: d1e08b97ccec4490890ea65cb48422c9, type: 3}
   - {fileID: 7389862499326449324, guid: 632d56cc8b58f6843a7ebbfc211ef592, type: 3}
   - {fileID: 7389862499326449324, guid: a43fa7471bb29ab439ab2d79bf94a0cb, type: 3}
+  - {fileID: 7389862499326449324, guid: e53d0d1d4e02996458565f750bdd2d39, type: 3}
+  - {fileID: 7389862499326449324, guid: 18dafea09a8db24478eac07ddd6b3692, type: 3}
+  - {fileID: 7389862499326449324, guid: 9d1ae2470b18d4540a9018f55bc334aa, type: 3}
   timeBetweenSpawns: 5
   timeBeforeFirstSpawn: 5
 --- !u!1 &7901976901602984465

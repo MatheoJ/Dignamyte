@@ -9,6 +9,7 @@ public class CharacterHealth : MonoBehaviour
 
     public bool invincible;
 
+    public float invincibleTime = 5f;
  
     
     // Start is called before the first frame update
@@ -64,10 +65,10 @@ public class CharacterHealth : MonoBehaviour
 
     private IEnumerator InvincibleTimer()
     {
-      
-            yield return new WaitForSeconds(5f);
+            //Get in game UI manager
+            GameObject.FindGameObjectWithTag("InGameUIManager").GetComponent<InGameUIManager>().startInvincibilityClock(invincibleTime);
+            yield return new WaitForSeconds(invincibleTime);
             invincible = false;
-        
     }
 
 }
