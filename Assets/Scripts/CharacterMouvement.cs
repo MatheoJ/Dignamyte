@@ -125,17 +125,9 @@ public class CharacterMouvement : MonoBehaviour
     {
         if(compteurBombe % 3 == 0)
         {
-            canCrit = true;
-              return (true);
+            return true;
         }
-        else {
-            return (false);
-            
-        }
-
-        //TODO add logic here
-       // return false;
-        
+        return false;
     }
 
 }
