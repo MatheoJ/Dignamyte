@@ -146,6 +146,8 @@ public class CharacterMouvement : MonoBehaviour
 
         yield return new WaitForSeconds(waitSound);
 
+        anim.SetTrigger("Placement");
+
         compteurBombe++;
         currentBombe--;
 
@@ -153,6 +155,7 @@ public class CharacterMouvement : MonoBehaviour
 
         if (CanCrit())
         {
+            anim.SetTrigger("PlacementCrit");
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
 
