@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_Outline
+  m_Name: MAT_Outline 1
   m_Shader: {fileID: -6465566751694194690, guid: 13c33fffd58b62e418c26c65d0f128f5,
     type: 3}
   m_Parent: {fileID: 0}
@@ -26,10 +26,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Layer_3855D6AD:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Layer_893DE2DF:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -63,21 +59,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorThreshold: 0.04
+    - _ColorThreshold: 1
     - _Dither_Scale: 1
-    - _Float: 0.58
     - _MAXDIST: 0
     - _MINDIST: 0
-    - _NormalThreshold: 1.11
+    - _NormalThreshold: 2.23
     - _OVERLAY: 0
-    - _Outline_Size: 1.25
+    - _Outline_Size: 0.7
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Threshold: 1
-    - _Tiling_Color: 45.2
-    - _Tiling_depth: 23.49
-    - _Tiling_normal: 14.5
+    - _Tiling_Color: 13.9
+    - _Tiling_depth: 21.84
+    - _Tiling_normal: 16
     m_Colors:
-    - _Outline_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
+    - _Outline_Color: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
