@@ -15,10 +15,16 @@ public class CharacterMouvement : MonoBehaviour
 
     //Test limite bombe
     public int limiteBombe = 3;
+    public int currentBombe;
+    public int compteurBombe = 0;
+
+    public bool canCrit;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        currentBombe = limiteBombe;
+        //canCrit = false;
     }
     
     private void Update()
@@ -26,6 +32,7 @@ public class CharacterMouvement : MonoBehaviour
         GatherInput();
         Look();
         PlaceBomb();
+        
     }
 
     private void FixedUpdate()
@@ -75,25 +82,60 @@ public class CharacterMouvement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
-            var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
-            
-            if(CanCrit())
+         
+
+            if (currentBombe > 0)
             {
-                var param = GlobalBombParam.Instance;
-                gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-                
-                
+                compteurBombe++;
+                currentBombe--;
+
+                var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+
+                if (CanCrit())
+                {
+                    var param = GlobalBombParam.Instance;
+                    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+
+                    canCrit = false;
+                }
             }
-            
-            
+            //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
+
+            //if (CanCrit())
+            //{
+            //    var param = GlobalBombParam.Instance;
+            //    gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
+
+
+            //}
+
+
         }
     }
 
+
+    private void BombLimitation()
+    {
+
+
+    }
+
+
     private bool CanCrit()
     {
+        if(compteurBombe % 3 == 0)
+        {
+            canCrit = true;
+              return (true);
+        }
+        else {
+            return (false);
+            
+        }
+
         //TODO add logic here
-        return true;
+       // return false;
+        
     }
 
 }
