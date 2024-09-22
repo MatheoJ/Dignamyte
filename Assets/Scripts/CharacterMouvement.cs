@@ -86,8 +86,9 @@ public class CharacterMouvement : MonoBehaviour
 
             if (currentBombe > 0)
             {
-                compteurBombe++;
                 currentBombe--;
+                compteurBombe++;
+
 
                 var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
 
@@ -96,7 +97,7 @@ public class CharacterMouvement : MonoBehaviour
                     var param = GlobalBombParam.Instance;
                     gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
 
-                    canCrit = false;
+                    
                 }
             }
             //var gameObject = Instantiate(bombPrefab, transform.position, transform.rotation);
@@ -123,15 +124,18 @@ public class CharacterMouvement : MonoBehaviour
 
     private bool CanCrit()
     {
-        if(compteurBombe % 3 == 0)
+        Debug.Log($"Checking CanCrit: compteurBombe = {compteurBombe}");
+        if (compteurBombe % 3 == 0)
         {
-            canCrit = true;
-              return (true);
+            
+            Debug.Log("CanCrit is true");
+            return (true);
         }
-        else {
+      
+            Debug.Log("CanCrit is false");
             return (false);
             
-        }
+        
 
         //TODO add logic here
        // return false;
