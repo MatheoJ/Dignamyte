@@ -44,6 +44,8 @@ public class CharacterMouvement : MonoBehaviour
         currentBombe = limiteBombe;
         anim = perso.GetComponent<Animator>();
         bombAnim = bomb.GetComponent<Animator>();
+        critPossible = false;
+        noBomb = false;
         //canCrit = false;
     }
     
@@ -195,7 +197,7 @@ public class CharacterMouvement : MonoBehaviour
             
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-            critPossible = false;
+            //critPossible = false;
             //canCrit = false;
         }
     }
