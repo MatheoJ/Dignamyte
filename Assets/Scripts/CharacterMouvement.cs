@@ -60,16 +60,20 @@ public class CharacterMouvement : MonoBehaviour
         {
             noBomb = true;
         }
+        else
+        {
+            noBomb = false;
+        }
 
 
 
-        if (critPossible == true)
+        if (critPossible == true && noBomb == false)
         {
             bombAnim.SetBool("BombCrit", true);
             bombAnim.SetBool("NoBomb", false);
 
         }
-        else if (noBomb == true)
+        else if (noBomb == true && critPossible == false)
         {
 
             bombAnim.SetBool("BombCrit", false);
@@ -181,26 +185,16 @@ public class CharacterMouvement : MonoBehaviour
     {
         anim.SetTrigger("Placement");
 
-
-        if(CanCrit())
-        {
-            critPossible = true;
-
-        }
-        else
-        {
-            critPossible = false; 
-        }
+      
 
 
 
-        if(critPossible)
+        if(critPossible == true && noBomb == false)
         {
             bombAnim.SetTrigger("CritPlanted");
         }
-        else 
+        else if (critPossible == false && noBomb == false)
         {
-
             bombAnim.SetTrigger("SmallPlanted");
         }
 
@@ -220,7 +214,8 @@ public class CharacterMouvement : MonoBehaviour
             
             var param = GlobalBombParam.Instance;
             gameObject.GetComponent<ExplosionHandler>().ApplyCritStatus(param.critBlastRadius, param.critBlastForce, param.critDeadZoneRadius);
-            //critPossible = false;
+            yield return new WaitForSeconds(0.1f);
+            critPossible = false;
             //canCrit = false;
         }
     }
@@ -238,9 +233,9 @@ public class CharacterMouvement : MonoBehaviour
 
     private bool CanCrit()
     {
-        if(compteurBombe % 3 == 0 && currentBombe != 0)
-        { 
-
+        if(compteurBombe % 3 == 0)
+        {
+            critPossible = true;
             return true;
         }
         return false;

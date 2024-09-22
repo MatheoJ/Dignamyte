@@ -2234,6 +2234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341549439866966908, guid: 312de892da41b5f45a6e1105d8f323d9,
         type: 3}
+      propertyPath: critPossible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341549439866966908, guid: 312de892da41b5f45a6e1105d8f323d9,
+        type: 3}
       propertyPath: bombEnterrement
       value: 
       objectReference: {fileID: 1125607109}
