@@ -31,8 +31,8 @@ public class CharacterMouvement : MonoBehaviour
 
 
     //Animation
-    Animator anim;
-    public GameObject perso;
+    //Animator anim;
+    //public GameObject perso;
     Animator bombAnim;
     public GameObject bomb;
     public bool critPossible;
@@ -43,7 +43,7 @@ public class CharacterMouvement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         currentBombe = limiteBombe;
-        anim = perso.GetComponent<Animator>();
+        //anim = perso.GetComponent<Animator>();
         bombAnim = bomb.GetComponent<Animator>();
         critPossible = false;
         noBomb = false;
@@ -160,9 +160,8 @@ public class CharacterMouvement : MonoBehaviour
 
     private IEnumerator BombPlacement()
     {
-        anim.SetTrigger("Placement");
+       // anim.SetTrigger("Placement");
 
-      
 
 
 
@@ -174,6 +173,7 @@ public class CharacterMouvement : MonoBehaviour
         {
             bombAnim.SetTrigger("SmallPlanted");
         }
+      
 
 
         bombEnterrement.PlayOneShot(bombEnterrement.clip, volume);
