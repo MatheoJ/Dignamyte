@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 431544095510428}
   - component: {fileID: 8969384905728445100}
   - component: {fileID: 5440339892520576722}
+  - component: {fileID: 8188652411414281480}
   m_Layer: 8
   m_Name: FreezePowerUp
   m_TagString: SpeedBoost
@@ -30,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2071295938420813457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,8 +64,7 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,8 +105,22 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.87
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8188652411414281480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041950675350827586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e0739a472964e22bb873d591bae52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poweupEffect: {fileID: 11400000, guid: 09c4ede8a3c1b411f97f69ae122725ff, type: 2}
+  timeBeforeDestroy: 20
 --- !u!1 &7389862499326449324
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071295938420813457}
-  - component: {fileID: 6834482629059215117}
   m_Layer: 8
   m_Name: FreezePWU
   m_TagString: Untagged
@@ -141,20 +154,6 @@ Transform:
   - {fileID: 7220678130263037489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6834482629059215117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389862499326449324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e0739a472964e22bb873d591bae52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poweupEffect: {fileID: 11400000, guid: 09c4ede8a3c1b411f97f69ae122725ff, type: 2}
-  timeBeforeDestroy: 20
 --- !u!1001 &7947697104341271726
 PrefabInstance:
   m_ObjectHideFlags: 0

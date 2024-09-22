@@ -13,5 +13,6 @@ public class RangePWU : PoweupEffect
     public override void Apply(GameObject target)
     {
         GlobalBombParam.Instance.blastRadius += amount;
+        GameObject.FindGameObjectWithTag("InGameUIManager").GetComponent<InGameUIManager>().displayRangeBoostText();
     }
 }

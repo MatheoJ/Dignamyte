@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 431544095510428}
   - component: {fileID: 8969384905728445100}
   - component: {fileID: 5440339892520576722}
+  - component: {fileID: 4245115169262831999}
   m_Layer: 8
   m_Name: BlastPowerUp
   m_TagString: SpeedBoost
@@ -104,8 +105,22 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.71
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4245115169262831999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041950675350827586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e0739a472964e22bb873d591bae52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poweupEffect: {fileID: 11400000, guid: ca78d56a3c52a3e49887dc4e09d5e328, type: 2}
+  timeBeforeDestroy: 20
 --- !u!1 &7389862499326449324
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071295938420813457}
-  - component: {fileID: 1911336956396589830}
   m_Layer: 8
   m_Name: BlastPWU
   m_TagString: Untagged
@@ -140,20 +154,6 @@ Transform:
   - {fileID: 4097854053333803998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1911336956396589830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7389862499326449324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e0739a472964e22bb873d591bae52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poweupEffect: {fileID: 11400000, guid: ca78d56a3c52a3e49887dc4e09d5e328, type: 2}
-  timeBeforeDestroy: 20
 --- !u!1001 &674294712444333856
 PrefabInstance:
   m_ObjectHideFlags: 0

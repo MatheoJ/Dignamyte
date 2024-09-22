@@ -12,6 +12,7 @@ public class SpeedPWU : PoweupEffect
     public override void Apply(GameObject target)
     {
         target.GetComponent<CharacterMouvement>()._speed += amount;
+        GameObject.FindGameObjectWithTag("InGameUIManager").GetComponent<InGameUIManager>().displaySpeedBoostText();
     }
 
 
