@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Powerups/Blast")]
 public class BlastPWU : PoweupEffect
 {
+    public GameObject blastFx;
 
     public LayerMask layerMask;
     public LayerMask obstacleLayerMask;
@@ -20,6 +21,11 @@ public class BlastPWU : PoweupEffect
     
     public override void Apply(GameObject target)
     {
+        //Instantiate vfx
+        var obj = Instantiate(blastFx);
+        obj.transform.position = target.transform.position;
+        
+        //Apply blast effect
         var potentialBlastInstance = Physics.OverlapSphere(target.transform.position, blastRadius, layerMask);
 
         foreach (var collider in potentialBlastInstance)
