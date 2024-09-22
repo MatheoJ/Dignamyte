@@ -76,6 +76,14 @@ public class CharacterMouvement : MonoBehaviour
         //_rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
 
         _rb.MovePosition(transform.position +_input * _speed * Time.deltaTime);
+
+
+
+        //test bombAdd
+        //if(Input.GetKeyDown(KeyCode.B))
+        //{
+        //    BombAdd();
+        //}
     }
 
     private void PlaceBomb()
@@ -114,9 +122,13 @@ public class CharacterMouvement : MonoBehaviour
     }
 
 
-    private void BombLimitation()
+    public void BombAdd()
     {
 
+        if(currentBombe < limiteBombe)
+        {
+            currentBombe++;
+        }
 
     }
 
@@ -125,17 +137,9 @@ public class CharacterMouvement : MonoBehaviour
     {
         if(compteurBombe % 3 == 0)
         {
-            canCrit = true;
-              return (true);
+            return true;
         }
-        else {
-            return (false);
-            
-        }
-
-        //TODO add logic here
-       // return false;
-        
+        return false;
     }
 
 }

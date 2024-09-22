@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6f8349894add0418e4e58d3713aebd, type: 3}
   m_Name: BlastPWU
   m_EditorClassIdentifier: 
+  blastFx: {fileID: 5590759985008759229, guid: 576bb82d5e444104aa255b0725917e2a, type: 3}
   layerMask:
     serializedVersion: 2
     m_Bits: 3584
