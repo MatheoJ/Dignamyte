@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 977922729838093730}
   - component: {fileID: 2482772414141189343}
   - component: {fileID: 767667191769512145}
+  - component: {fileID: -3910770046256741288}
   m_Layer: 10
   m_Name: AiEnemy
   m_TagString: Finish
@@ -134,6 +135,23 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3910770046256741288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776577384287729500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b044eafd04da864449b500ac8fcc630f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burryFX: {fileID: 6986047223568288208, guid: 1c5b8085eeb96ea4bafad8fb88ffda04, type: 3}
+  rotationSpeed: 90
+  startValue: 0
+  endValue: 0.5
+  duration: 4
 --- !u!1 &8590513053731850313
 GameObject:
   m_ObjectHideFlags: 0

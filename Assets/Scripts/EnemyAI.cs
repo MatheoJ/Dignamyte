@@ -77,11 +77,5 @@ public class EnemyAI : MonoBehaviour
                 rb.velocity=(jumpDirection.normalized * 2.0f);
         }
     }
-    
-    public void kill()
-    {
-        //TODO Animation here
-        Destroy(gameObject);
-    }
-    
+   
 }

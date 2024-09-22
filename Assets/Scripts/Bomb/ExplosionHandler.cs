@@ -46,6 +46,7 @@ public class ExplosionHandler : MonoBehaviour
     {
         if (!_exploded)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMouvement>().BombAdd();
             _exploded = true;
             PlayVFXAndDestroy();
             // Destroy(this.gameObject);    
@@ -86,6 +87,9 @@ public class ExplosionHandler : MonoBehaviour
         
             if (targetLayerMask == EnemyLayer)
             {
+                
+                //TODO fetch manager and increment kill count
+                
                 if (!IsObstructed(gameObject.transform.position, collider.gameObject.transform.position))
                 {
                     var agent = collider.gameObject.GetComponent<NavMeshAgent>();
@@ -121,7 +125,7 @@ public class ExplosionHandler : MonoBehaviour
                     
             if (targetLayerMask == EnemyLayer)
             {
-                collider.gameObject.GetComponent<EnemyAI>()?.kill();
+                collider.gameObject.GetComponent<BurrySelf>()?.StartLerp();
                 continue;               
             }
                                                
