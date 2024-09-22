@@ -2405,6 +2405,11 @@ PrefabInstance:
       propertyPath: eventHandler.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: UnityEngine.Video.VideoPlayer, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 742098350317813550, guid: 030daa0435c45eb4293289268fbb40aa,
+        type: 3}
+      propertyPath: eventHandler.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_FloatArgument
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1589350452985599422, guid: 030daa0435c45eb4293289268fbb40aa,
         type: 3}
       propertyPath: m_Name
@@ -2999,6 +3004,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InGameUIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276722037304799430, guid: a4cf25cf2abd1244190f1609aecde64f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5276722037304799430, guid: a4cf25cf2abd1244190f1609aecde64f,
         type: 3}
