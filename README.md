@@ -2,7 +2,7 @@
 
 This game was made in 46h hour during the Creative Game Jam 2024 organised by Ubisoft
 
-For more informtion on the game and to download the executable you can see the [Itch.io page](https://nasnasart.itch.io/dignamyte) 
+For more information on the game and to download the executable you can see the [Itch.io page](https://nasnasart.itch.io/dignamyte) 
 
 Start Menu           |  GamePlay Screen Shot
 :-------------------------:|:-------------------------:
